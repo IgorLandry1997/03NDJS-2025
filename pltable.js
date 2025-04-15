@@ -44,12 +44,16 @@ async function scrapeLastTenYears() {
 
     console.log(dataRows);
 
-    // Optional: Save to file
-    // fs.writeFileSync('lastTenYearsData.json', JSON.stringify(dataRows, null, 2));
+    // ✅ Save to JSON file
+    fs.writeFileSync('lastTenYearsData.json', JSON.stringify(dataRows, null, 2), 'utf8');
+    console.log('✅ Données sauvegardées dans lastTenYearsData.json');
+
+    return dataRows;
 
   } catch (error) {
     console.error('Erreur lors du scraping :', error.message);
   }
 }
 
+// 👇 Launch the function
 scrapeLastTenYears();
