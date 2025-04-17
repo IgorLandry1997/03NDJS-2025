@@ -1,2 +1,0 @@
-res.status is a node js web application framework that's used to set the HTTP status code for a response before it is sent back to the client. 
-
