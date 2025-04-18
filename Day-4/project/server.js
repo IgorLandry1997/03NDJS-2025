@@ -1,12 +1,12 @@
-// server.js
 const express = require('express');
-const app = express();
+const userRoutes = require('./routes/userRoutes');
 
+const app = express();
 app.use(express.json());
 
-app.post('/register', (req, res) => {
-  console.log('Register request:', req.body);
-  res.status(201).json({ message: 'Test register', data: req.body });
-});
+// Mount routes
+app.use('/', userRoutes);
 
-app.listen(3000, () => console.log('Server running on port 3000'));
+// Start server
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
